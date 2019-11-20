@@ -49,6 +49,7 @@ const onChangePasswordFailure = () => {
 const onSignOutSuccess = () => {
   onSuccess('You have successfully logged out!')
   store.user = {}
+  store.game = {}
   $('.after-auth').hide()
   $('.before-auth').show()
 }
@@ -57,7 +58,24 @@ const onSignOutFailure = () => {
   onFailure('Hmmm.. something went wrong. Try again.')
 }
 
+const onGetTotalGames = () => {
+  onGetTotalGames($('#total-gamnes').text(store.game.id))
+}
+
+// const onCreateGameSuccess = () => {
+//   onSuccess('You have successfully logged out!')
+//   store.user = {}
+//   $('.after-auth').hide()
+//   $('.before-auth').show()
+// }
+//
+// const onCreateGameFailure = () => {
+//   onFailure('Hmmm.. something went wrong. Try again.')
+// }
+
 module.exports = {
+  onSuccess,
+  onFailure,
   onSignupSuccess,
   onSignupFailure,
   onSignInSuccess,
@@ -65,5 +83,6 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onGetTotalGames
 }

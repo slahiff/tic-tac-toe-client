@@ -1,28 +1,131 @@
 @import '~bootstrap/scss/bootstrap';
 
 $black: #000;
-$success: #008000;
+$body-bg-color: $gray-200;
+$error-bgr: #ebcece;
+$error-text: #f00;
+$error-bgr: #ebcece;
+$font-color: $black;
+$success-bgr: #c6f5d0;
+$success-text: #1f572b;
 $white: #fff;
-$error: #f00;
+$yellow: #fff400;
 
-.border {
-  border: 3px solid $black;
-  margin: 20px;
-  padding: 20px;
+body {
+  background-color: $body-bg-color;
+  display: block;
+  line-height: 2;
+  margin: auto;
+  max-height: calc(100vh + 250px);
+  max-width: calc(100vw);
+  padding: 0 20px;
+  text-align: justify;
+
+  .after-auth {
+    display: none;
+  }
+
+  .board {
+    height: 30vh;
+    margin-bottom: 65px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35vw;
 }
 
-.success {
-  background-color: $success;
-  color: $white;
-  font-size: 2em;
+  .border {
+    border: 0 3px 3px 3px solid $black;
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .box {
+    align-items: center;
+    background-color: $white;
+    border: 5px solid $black;
+    color: $font-color;
+    display: flex;
+    font-size: 4em;
+    height: 20vh;
+    justify-content: center;
+    text-shadow: 3px 3px rgba(0, 0, 0, .25);
+    width: 5vw;
 }
 
-.failure {
-  background-color: $error;
-  color: $white;
-  font-size: 2em;
+  .btn-danger {
+    float: right;
+  }
+
+  button {
+    margin: 5px 10px;
 }
 
-.after-auth {
-  display: none;
+  .center-div {
+    align-content: center;
+    margin: 0 auto;
+    text-align: center;
+    width: 25%; //value of your choice which suits your alignment
+}
+
+  .col-4 {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+  // div {
+  //   display: inline-block;
+  // }
+
+  .failure {
+    background-color: $error-bgr;
+    color: $error-text;
+    display: inline-block;
+    font-size: 1em;
+    font-style: italic;
+    padding: 0 5px;
+}
+
+  .game-event {
+    background-color: $yellow;
+    border: 1px solid $black;
+    display: inline-block;
+    float: center;
+    font-size: 20px;
+    font-style: italic;
+    font-variant: small-caps;
+    line-height: 1.5;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+    text-align: center;
+}
+
+  h1 {
+    margin: 10px 5px;
+    text-align: center;
+}
+
+  h3 {
+    margin: 10px 5px;
+    text-align: center;
+}
+
+  h5 {
+    margin-bottom: 8px;
+    margin-left: 35px;
+}
+
+  .message {
+    float: center;
+  }
+
+  .success {
+    background-color: $success-bgr;
+    color: $success-text;
+    display: inline-block;
+    font-size: 1em;
+    font-style: italic;
+    padding: 0 5px;
+}
 }
