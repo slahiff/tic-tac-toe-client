@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tic-Tac-Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <h1>Tic-Tac-Toe</h1>
+  <div id="message" class="message"></div>
+<header>
+  <section class="before-auth">
+    <h5>Sign Up</h5>
+    <div class="container">
+      <form id="sign-up">
+        <div class="row">
+          <div class="form-group col-xs-1">
+            <input type="email" class="form-control" name="credentials[email]" placeholder="email">
+            <input type="password" class="form-control" name="credentials[password]" placeholder="password">
+            <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="password confirmation">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+  </div>
+  <h5>Sign In</h5>
+    <div class="container">
+      <form id="sign-in">
+        <div class="row">
+          <div class="form-group col-xs-1">
+            <input type="email" class="form-control" name="credentials[email]" placeholder="email">
+            <input type="password" class="form-control" name="credentials[password]" placeholder="password">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+  </div>
+  </section>
+  </header>
+
+  <section class="after-auth">
+    <form id="sign-out">
+      <button class="btn btn-danger">Sign Out</button>
+    </form>
+      <form id="create-game">
+        <button class="d-inline-block btn btn-success">Start New Game</button>
+      </form>
+      <form>
+          <button id="get-total-games" class="d-inline-block btn btn-info">Get Total Games Played</button>
+          <div id="total-games"></div>
+      </form>
+
+    <section class="container-fluid">
+      <h3>Game Board</h3>
+      <div id="game-event" class="game-event"></div>
+              <div class="row h-100 board">
+                <div class="col-4 box" id='0'></div>
+                <div class="col-4 box" id='1'></div>
+                <div class="col-4 box" id='2'></div>
+                <div class="col-4 box" id='3'></div>
+                <div class="col-4 box" id='4'></div>
+                <div class="col-4 box" id='5'></div>
+                <div class="col-4 box" id='6'></div>
+                <div class="col-4 box" id='7'></div>
+                <div class="col-4 box" id='8'></div>
+              </div>
+          </section>
+  </section>
+  <section class="after-auth">
+  <div class="container center-div">
+    <form class="change-password" id="change-password">
+      <div class="row">
+        <div class="form-group col-xs-1">
+      <h5 class="change-password">Want to change you password?</h5>
+      <input type="text" class="form-control" name="passwords[old]" placeholder="Old Password">
+      <input type="text" class="form-control" name="passwords[new]" placeholder="New Password">
+      <button class="d-inline-block btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+</body>
+</html>
