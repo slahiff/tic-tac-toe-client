@@ -42,62 +42,62 @@ const signOut = () => {
 
 // GAME LOGIC
 
-const newGame = (id) => {
-  return $.ajax({
-    url: config.apiUrl + '/games/',
-    method: 'POST',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    },
-    data: {
-      game: {
-        'id': id,
-        'cells': ['', '', '', '', '', '', '', '', ''],
-        'over': false,
-        'player_x': {
-          'id': 1,
-          'email': ''
-        },
-        'player_o': null
-      }
-    }
-  })
-}
-
-const updateGame = (id, index, currentPlayer) => {
-  return $.ajax({
-    url: config.apiUrl + '/games/' + store.game.id,
-    method: 'PATCH',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    },
-    data: {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': currentPlayer
-        }
-      }
-    }
-  })
-}
-
-const getTotalGames = () => {
-  return $.ajax({
-    url: config.apiUrl + '/games/',
-    method: 'GET',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    }
-  })
-}
+// const newGame = (id) => {
+//   return $.ajax({
+//     url: config.apiUrl + '/games/',
+//     method: 'POST',
+//     headers: {
+//       Authorization: `Token token=${store.user.token}`
+//     },
+//     data: {
+//       game: {
+//         'id': id,
+//         'cells': ['', '', '', '', '', '', '', '', ''],
+//         'over': false,
+//         'player_x': {
+//           'id': 1,
+//           'email': ''
+//         },
+//         'player_o': null
+//       }
+//     }
+//   })
+// }
+//
+// const updateGame = (id, index, currentPlayer) => {
+//   return $.ajax({
+//     url: config.apiUrl + '/games/' + store.game.id,
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: `Token token=${store.user.token}`
+//     },
+//     data: {
+//       'game': {
+//         'cell': {
+//           'index': index,
+//           'value': currentPlayer
+//         }
+//       }
+//     }
+//   })
+// }
+//
+// const getTotalGames = () => {
+//   return $.ajax({
+//     url: config.apiUrl + '/games/',
+//     method: 'GET',
+//     headers: {
+//       Authorization: `Token token=${store.user.token}`
+//     }
+//   })
+// }
 
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut,
-  newGame,
-  updateGame,
-  getTotalGames
+  signOut
+  // newGame,
+  // updateGame,
+  // getTotalGames
 }

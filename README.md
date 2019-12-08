@@ -1,3 +1,1 @@
-My Readme
-
-Tic-tac-toe shenannigans!
+Tic-Tac-Toe ReadMe
