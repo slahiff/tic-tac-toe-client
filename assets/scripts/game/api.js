@@ -10,9 +10,7 @@ const newGame = () => {
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    data: {
-      game: {}
-    }
+    data: {}
   })
 }
 

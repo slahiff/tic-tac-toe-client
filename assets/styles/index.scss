@@ -1,5 +1,4 @@
 @import '~bootstrap/scss/bootstrap';
-
 $black: #000;
 $body-bg-color: $gray-200;
 $error-bgr: #ebcece;
@@ -28,10 +27,9 @@ body {
     margin: 15px auto 30px;
     max-height: calc(100vh - 75px);
     max-width: calc(100vh - 250px);
-}
+  }
 
   .border {
-    border: 0 3px 3px 3px solid $black;
     margin: 20px;
     padding: 20px;
   }
@@ -41,6 +39,7 @@ body {
     background-color: $white;
     border: 5px solid $black;
     color: $font-color;
+    cursor: pointer;
     display: flex;
     font-size: 4em;
     height: 20vh;
@@ -48,7 +47,7 @@ body {
     min-height: calc(100% / 2);
     text-shadow: 3px 3px rgba(0, 0, 0, .25);
     width: 5vw;
-}
+  }
 
   .btn-danger {
     float: right;
@@ -56,18 +55,14 @@ body {
 
   button {
     margin: 5px 10px;
-}
+  }
 
   .center-div {
     align-content: center;
     margin: 0 auto;
     text-align: center;
     width: 25%; //value of your choice which suits your alignment
-}
-
-  .col-4 {
-    float: none;
-}
+  }
 
   .failure {
     background-color: $error-bgr;
@@ -76,7 +71,7 @@ body {
     font-size: 1em;
     font-style: italic;
     padding: 0 5px;
-}
+  }
 
   .game-event {
     background-color: $yellow;
@@ -88,17 +83,17 @@ body {
     margin: 15px auto;
     text-align: center;
     width: 30%;
-}
+  }
 
   h1 {
     margin: 10px 5px;
     text-align: center;
-}
+  }
 
   h3 {
     margin: 10px 5px;
     text-align: center;
-}
+  }
 
   .message {
     float: center;
@@ -111,5 +106,5 @@ body {
     font-size: 1em;
     font-style: italic;
     padding: 0 5px;
-}
+  }
 }

@@ -6,7 +6,7 @@ const store = require('../store')
 
 // Set initial player & game values
 let currentPlayer = 'X'
-const cells = ['', '', '', '', '', '', '', '', '']
+let cells = ['', '', '', '', '', '', '', '', '']
 let over = false
 
 // function that switches between player
@@ -21,7 +21,7 @@ const switchPlayer = () => {
 const onNewGame = event => {
   event.preventDefault()
 
-  $('.col-4').html('')
+  $('.box').html('')
   currentPlayer = 'X'
   console.log('New Game clicked')
 
@@ -99,7 +99,7 @@ const checkWinner = () => {
 
 const checkGameOver = boolean => {
   if (over === true) {
-    $('.col-4').off('click', onPlayerMove)
+    $('.box').off('click', onPlayerMove)
   }
 }
 
@@ -112,7 +112,7 @@ const checkGameOver = boolean => {
 
 const addHandlers = event => {
   $('#create-game').on('click', onNewGame)
-  $('.col-4').on('click', onPlayerMove)
+  $('.box').on('click', onPlayerMove)
   // $('#get-total-games').on('click', onGetTotalGames)
   // $('#create-game').on('click', onCreateGame)
 }
