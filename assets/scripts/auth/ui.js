@@ -58,21 +58,6 @@ const onSignOutFailure = () => {
   onFailure('Hmmm.. something went wrong. Try again.')
 }
 
-const onGetTotalGames = () => {
-  onGetTotalGames($('#total-gamnes').text(store.game.id))
-}
-
-// const onCreateGameSuccess = () => {
-//   onSuccess('You have successfully logged out!')
-//   store.user = {}
-//   $('.after-auth').hide()
-//   $('.before-auth').show()
-// }
-//
-// const onCreateGameFailure = () => {
-//   onFailure('Hmmm.. something went wrong. Try again.')
-// }
-
 module.exports = {
   onSuccess,
   onFailure,
@@ -83,6 +68,5 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure,
-  onGetTotalGames
+  onSignOutFailure
 }
