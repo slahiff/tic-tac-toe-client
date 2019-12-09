@@ -3,6 +3,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
+const getFormFields = require('../../../lib/get-form-fields')
 
 // Set initial player & game values
 let currentPlayer = 'X'
@@ -18,16 +19,20 @@ const switchPlayer = () => {
   }
 }
 
+// create new game
 const onNewGame = event => {
   event.preventDefault()
 
-  $('.box').html('')
-  currentPlayer = 'X'
-  console.log('New Game clicked')
-
   api.newGame()
+  over = false
+  cells = ['', '', '', '', '', '', '', '', '']
+  cells = store.game.cells
+  currentPlayer = 'X'
+  $('.box').html('')
+  $('.box').on('click', onPlayerMove)
+  $('#game-event').text('New game started: Player X - make your first move!')
 }
-// records move on UI and adds to cells array
+// records move on UI and adds to stored cell array
 const onPlayerMove = event => {
   event.preventDefault()
 
@@ -39,22 +44,24 @@ const onPlayerMove = event => {
     switchPlayer()
     checkWinner()
     checkGameOver()
-    console.log(cells)
+    api.updateGame(cells, currentPlayer, over)
+    console.log(cells, store)
     // api.updateGame()
   } else if (($(event.target).html() === '') && (currentPlayer === 'O')) {
     $(event.target).text('O')
     // update cells array
     cells[event.target.id] = currentPlayer
-    console.log(cells)
+    console.log(store)
 
     ui.onPlayerMove('Player X - your move!')
     switchPlayer()
     checkWinner()
     checkGameOver()
+    api.updateGame(cells, currentPlayer, over)
     // api.updateGame()
   } else {
     $('#game-event').text('This space is already taken!')
-    console.log(event.target)
+    api.updateGame(event.target, currentPlayer, over)
   }
 }
 
@@ -63,33 +70,27 @@ const checkWinner = () => {
     ((cells[0] === cells[1] && cells[0] === cells[2]) && cells[0] !== '') ||
     ((cells[0] === cells[3] && cells[0] === cells[6]) && cells[0] !== '') ||
     ((cells[0] === cells[4] && cells[0] === cells[8] && cells[0] !== ''))) {
-    console.log('Player', cells[0] + ' has won!')
     $('#game-event').text('Player ' + cells[0] + ' wins!!')
     over = true
   } else if ( // square 1 winner
     ((cells[1] === cells[4] && cells[1] === cells[7]) && cells[1] !== '')) {
-    console.log('Player', cells[1] + ' has won!')
     $('#game-event').text('Player ' + cells[1] + ' wins!!')
     over = true
   } else if ( // square 2 winner
     ((cells[2] === cells[5] && cells[2] === cells[8]) && cells[2] !== '') ||
     ((cells[2] === cells[4] && cells[2] === cells[6]) && cells[2] !== '')) {
-    console.log('Player', cells[2] + ' has won!')
     $('#game-event').text('Player ' + cells[2] + ' wins!!')
     over = true
   } else if ( // square 3 winner
     ((cells[3] === cells[4] && cells[3] === cells[5] && cells[3] !== ''))) {
-    console.log('Player', cells[3] + ' has won!')
     $('#game-event').text('Player ' + cells[3] + ' wins!!')
     over = true
   } else if ( // square 6 winner
     ((cells[6] === cells[7] && cells[6] === cells[8] && cells[6] !== ''))) {
-    console.log('Player', cells[6] + ' has won!')
     $('#game-event').text('Player ' + cells[6] + ' wins!!')
     over = true
   } else if (
     cells[0] !== '' && cells[1] !== '' && cells[2] !== '' && cells[3] !== '' && cells[4] !== '' && cells[5] !== '' && cells[6] !== '' && cells[7] !== '' && cells[8] !== '') {
-    // console.log('Game drawn!')
     $('#game-event').text('Looks like a stalemate... game drawn!!')
     over = true
   } else {
@@ -100,20 +101,20 @@ const checkWinner = () => {
 const checkGameOver = boolean => {
   if (over === true) {
     $('.box').off('click', onPlayerMove)
+    store.game = {}
   }
 }
 
-// const onGetTotalGames = () => {
-//   event.preventDefault()
-//
-//   api.getTotalGames()
-//     .then(ui.getTotalGamesSuccess)
-// }
+const onGetTotalGames = event => {
+  event.preventDefault()
+  api.getTotalGames()
+  document.getElementById('get-total-games').innerHTML = store.game.length
+}
 
 const addHandlers = event => {
   $('#create-game').on('click', onNewGame)
   $('.box').on('click', onPlayerMove)
-  // $('#get-total-games').on('click', onGetTotalGames)
+  $('#get-total-games').on('click', onGetTotalGames)
   // $('#create-game').on('click', onCreateGame)
 }
 
