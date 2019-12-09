@@ -7,10 +7,13 @@ const newGame = () => {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
+    contentType: 'application/json',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    data: {}
+    data: {
+      'game': '{}'
+    }
   })
 }
 
@@ -18,6 +21,7 @@ const updateGame = (index, value, over) => {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
+    contentType: 'application/json',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
@@ -35,8 +39,9 @@ const updateGame = (index, value, over) => {
 
 const getTotalGames = () => {
   return $.ajax({
-    url: config.apiUrl + `/games[?over=true]`,
+    url: config.apiUrl + `/games`,
     method: 'GET',
+    contentType: 'application/json',
     headers: {
       Authorization: `Token token=${store.user.token}`
     }
